@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import About from './componants/About';
+import Navbar from './componants/Navbar';
+import TextForm from './componants/TextForm';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes
+} from "react-router-dom";
 
-function App() {
+function App(){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<>
+<Navbar title="Textutils" about="About" contact="Contact"/>
+  <Router>
+<div className="container">
+<Routes>
+  <Route exact path='/' Component={TextForm}>
+{/* <TextForm title="Enter Text To Analyze." /> */}
+  </Route>
+  <Route exact path='/about' Component={About}>
+{/* <About/> */}
+  </Route>
+</Routes>
+</div>
+  </Router>
+</>
   );
 }
-
 export default App;
